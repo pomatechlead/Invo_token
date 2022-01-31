@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"contracts/libraries/SafeMath.sol": {
-			"keccak256": "0x483f0b50b354c472715a407f37960485a565925bb979807452c27daf54012334",
+			"keccak256": "0xd003c16e59b8576677f13b14de70a73885993d2855f618951b6f94fefad4b5e9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://bd53e2c09a20424f2ec4fde034ea816531527a93b1560ddb0b8ea7af9cf41db9",
-				"dweb:/ipfs/Qmcdwvci591TAK8DQ13QCZfyizFtoLy7imznj3X8dkJZZc"
+				"bzz-raw://7ab5fcd5a06b058d66aa3f7648d1f5037da1f28461a5664103d98455ca1ba5fa",
+				"dweb:/ipfs/QmbWRTGK5B2TY53artEGyeXMPQ9tybzMV1Rn8QBKTK46xM"
 			]
 		}
 	},

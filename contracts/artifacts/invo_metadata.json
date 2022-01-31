@@ -158,6 +158,32 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "_burnStopAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_lastTokenSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -225,6 +251,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "basePercent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -277,6 +316,25 @@
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "findFourPercent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -503,19 +561,19 @@
 			]
 		},
 		"contracts/invo.sol": {
-			"keccak256": "0x7c048430fb537749fb67bca77a1c50f4b814a3be5fabade28256510465a803a3",
+			"keccak256": "0xa424a823e51a55109f9c5b92832aa0e2c142508672a9ebbd39ac565550e9f162",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://576b5a37270910e6c7b2ba88b749d4958a8668a59ef6420d0dec914c9e8d4351",
-				"dweb:/ipfs/QmXqaaoB566SReBSkRqRpVeHYTZqxEuemdadqLucVyLiPH"
+				"bzz-raw://b2bbd7dd32df93edee9c337f19c8974f1d1a19bff67552b6907847e4905d1315",
+				"dweb:/ipfs/QmYATbLH2ez7rJQhaKyiDLjjv6tDShLq1UnfCNGtzjg5gS"
 			]
 		},
 		"contracts/libraries/SafeMath.sol": {
-			"keccak256": "0x483f0b50b354c472715a407f37960485a565925bb979807452c27daf54012334",
+			"keccak256": "0xd003c16e59b8576677f13b14de70a73885993d2855f618951b6f94fefad4b5e9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://bd53e2c09a20424f2ec4fde034ea816531527a93b1560ddb0b8ea7af9cf41db9",
-				"dweb:/ipfs/Qmcdwvci591TAK8DQ13QCZfyizFtoLy7imznj3X8dkJZZc"
+				"bzz-raw://7ab5fcd5a06b058d66aa3f7648d1f5037da1f28461a5664103d98455ca1ba5fa",
+				"dweb:/ipfs/QmbWRTGK5B2TY53artEGyeXMPQ9tybzMV1Rn8QBKTK46xM"
 			]
 		},
 		"contracts/lifecycle/Pausable.sol": {
