@@ -6,7 +6,28 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "tokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "tokenSymbol",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "defDecimals",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "iniTotalSupply",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -482,11 +503,11 @@
 			]
 		},
 		"contracts/invo.sol": {
-			"keccak256": "0xed0f3191cc09af396db3b7453d02cfdfc42339087b4a6fce93119bb1e51c41bd",
+			"keccak256": "0x7c048430fb537749fb67bca77a1c50f4b814a3be5fabade28256510465a803a3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7acf09aade328ca80e067e06100c4d0d3e466a55250c9cb008ac7654eb36aa0c",
-				"dweb:/ipfs/QmPwYb9PGrBGQofgj5u8uWSGbbdvX9ihzWjXzdFJLpRi7g"
+				"bzz-raw://576b5a37270910e6c7b2ba88b749d4958a8668a59ef6420d0dec914c9e8d4351",
+				"dweb:/ipfs/QmXqaaoB566SReBSkRqRpVeHYTZqxEuemdadqLucVyLiPH"
 			]
 		},
 		"contracts/libraries/SafeMath.sol": {

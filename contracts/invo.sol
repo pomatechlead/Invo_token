@@ -15,6 +15,9 @@ contract invo is Iinvo, Ownable, Pausable {
     string internal _symbol;
     uint8 internal _decimals;
     uint256 internal _totalSupply;
+    uint256 public basePercent = 400;
+    uint256 public _burnStopAmount;
+    uint256 public _lastTokenSupply;
 
     mapping (address => uint256) internal _balances;
     mapping (address => mapping (address => uint256)) internal _allowed;
@@ -22,18 +25,13 @@ contract invo is Iinvo, Ownable, Pausable {
     event Mint(address indexed minter, address indexed account, uint256 amount);
     event Burn(address indexed burner, address indexed account, uint256 amount);
 
-    constructor (
-        // string memory name, 
-        // string memory symbol, 
-        // uint8 decimals, 
-        // uint256 totalSupply
-    )
+    constructor (string memory tokenName, string memory tokenSymbol, uint8 defDecimals, uint256 iniTotalSupply)
     {
-        _symbol = "INV";
-        _name = "Invo";
-        _decimals = 0;
-        _totalSupply = 3000000000000;
-        _balances[msg.sender] = 3000000000000;
+        _symbol = tokenSymbol;
+        _name = tokenName;
+        _decimals = defDecimals;
+        _totalSupply = iniTotalSupply;
+        _balances[msg.sender] = iniTotalSupply;
     }
 
     function name(
@@ -60,6 +58,12 @@ contract invo is Iinvo, Ownable, Pausable {
         return _totalSupply;
     }
 
+    function findFourPercent(uint256 value) public view returns (uint256)  {
+        uint256 roundValue = value.ceil(basePercent);
+        uint256 fourPercent = roundValue.mul(basePercent).div(10000);
+        return fourPercent;
+    }
+
     function transfer(
         address _to, 
         uint256 _value
@@ -67,13 +71,19 @@ contract invo is Iinvo, Ownable, Pausable {
         whenNotPaused 
       returns (bool)
     {
-        require(_to != address(0), 'ERC20: to address is not valid');
-        require(_value <= _balances[msg.sender], 'ERC20: insufficient balance');
+        require(_to != address(0), 'Invo: to address is not valid');
+        require(_value <= _balances[msg.sender], 'Invo: insufficient balance');
         
+        uint256 tokensToBurn = findFourPercent(_value);
+        uint256 tokensToTransfer = _value.sub(tokensToBurn);
+
         _balances[msg.sender] = SafeMath.sub(_balances[msg.sender], _value);
-        _balances[_to] = SafeMath.add(_balances[_to], _value);
+        _balances[_to] = SafeMath.add(_balances[_to], tokensToTransfer);
         
-        emit Transfer(msg.sender, _to, _value);
+        _totalSupply = _totalSupply.sub(tokensToBurn);
+
+        emit Transfer(msg.sender, _to, tokensToTransfer);
+        emit Transfer(msg.sender, address(0), tokensToBurn);
         
         return true;
     }
@@ -172,8 +182,8 @@ contract invo is Iinvo, Ownable, Pausable {
         whenNotPaused
         onlyOwner
     {
-        require(_to != address(0), 'ERC20: to address is not valid');
-        require(_amount > 0, 'ERC20: amount is not valid');
+        require(_to != address(0), 'Invo: to address is not valid');
+        require(_amount > 0, 'Invo: amount is not valid');
 
         _totalSupply = _totalSupply.add(_amount);
         _balances[_to] = _balances[_to].add(_amount);
@@ -188,8 +198,8 @@ contract invo is Iinvo, Ownable, Pausable {
         whenNotPaused
         onlyOwner
     {
-        require(_from != address(0), 'ERC20: from address is not valid');
-        require(_balances[_from] >= _amount, 'ERC20: insufficient balance');
+        require(_from != address(0), 'Invo: from address is not valid');
+        require(_balances[_from] >= _amount, 'Invo: insufficient balance');
         
         _balances[_from] = _balances[_from].sub(_amount);
         _totalSupply = _totalSupply.sub(_amount);
