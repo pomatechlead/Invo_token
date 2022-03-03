@@ -6,28 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "tokenName",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "tokenSymbol",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "defDecimals",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "iniTotalSupply",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -62,61 +41,17 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "burner",
+						"name": "previousOwner",
 						"type": "address"
 					},
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Burn",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "minter",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Mint",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "account",
+						"name": "newOwner",
 						"type": "address"
 					}
 				],
-				"name": "Paused",
+				"name": "OwnershipTransferred",
 				"type": "event"
 			},
 			{
@@ -145,34 +80,8 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "Unpaused",
-				"type": "event"
-			},
-			{
 				"inputs": [],
-				"name": "_burnStopAmount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "_lastTokenSupply",
+				"name": "_maxTxAmount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -187,12 +96,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_owner",
+						"name": "owner",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_spender",
+						"name": "spender",
 						"type": "address"
 					}
 				],
@@ -211,12 +120,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_spender",
+						"name": "spender",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -235,24 +144,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_owner",
+						"name": "account",
 						"type": "address"
 					}
 				],
 				"name": "balanceOf",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "balance",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "basePercent",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -261,24 +157,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_from",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "burnFrom",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -298,16 +176,16 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_spender",
+						"name": "spender",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_subtractedValue",
+						"name": "subtractedValue",
 						"type": "uint256"
 					}
 				],
-				"name": "decreaseApproval",
+				"name": "decreaseAllowance",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -321,75 +199,70 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "findFourPercent",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
-						"name": "_spender",
+						"name": "account",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_addedValue",
-						"type": "uint256"
 					}
 				],
-				"name": "increaseApproval",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "isOwner",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "mintTo",
+				"name": "excludeAccount",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "includeAccount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isExcluded",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -419,23 +292,60 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "pause",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "reflect",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "paused",
-				"outputs": [
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tAmount",
+						"type": "uint256"
+					},
 					{
 						"internalType": "bool",
-						"name": "",
+						"name": "deductTransferFee",
 						"type": "bool"
 					}
 				],
+				"name": "reflectionFromToken",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "maxTxPercent",
+						"type": "uint256"
+					}
+				],
+				"name": "setMaxTxPercent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -446,6 +356,38 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "rAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenFromReflection",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalFees",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -468,12 +410,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -492,17 +434,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_from",
+						"name": "sender",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -518,8 +460,14 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "unpause",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -527,7 +475,35 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"allowance(address,address)": {
+					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called."
+				},
+				"approve(address,uint256)": {
+					"details": "Sets `amount` as the allowance of `spender` over the caller's tokens. Returns a boolean value indicating whether the operation succeeded. IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 Emits an {Approval} event."
+				},
+				"balanceOf(address)": {
+					"details": "Returns the amount of tokens owned by `account`."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"totalSupply()": {
+					"details": "Returns the amount of tokens in existence."
+				},
+				"transfer(address,uint256)": {
+					"details": "Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -538,7 +514,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/invo.sol": "invo"
+			"contracts/invo_v1.sol": "InvoToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -552,44 +528,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interfaces/Iinvo.sol": {
-			"keccak256": "0x4db545ab731f248be55d18b909636006ba54c9eea6ace7b79858dc02595c3545",
-			"license": "GPL-3.0",
+		"contracts/invo_v1.sol": {
+			"keccak256": "0x74a36b2a52ca40c51f3c58bbd8a64b4e19945113466d5e793566f458774e55c2",
+			"license": "Unlicensed",
 			"urls": [
-				"bzz-raw://2c6f20c86f3a6c21a633d08661b41a411209a20aac2f145fba08228819e500fe",
-				"dweb:/ipfs/Qmb6iDxRk4SbSeDT8M7PGeYSn5qNmbsZQyHCKrKbei9UpC"
-			]
-		},
-		"contracts/invo.sol": {
-			"keccak256": "0x16d26a199cd15fcbfbb7633a24727a32edbe20790c4037f3552eb8b2107cc495",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://40cbf11572722e494f1f4268959fbd2224f4a8217e32ee0e585f4672e976307e",
-				"dweb:/ipfs/QmeV2x4Tu8L7SdFxnHUjDsWqXDdK6ZTxCJroGyNQ4YtCBr"
-			]
-		},
-		"contracts/libraries/SafeMath.sol": {
-			"keccak256": "0xd003c16e59b8576677f13b14de70a73885993d2855f618951b6f94fefad4b5e9",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://7ab5fcd5a06b058d66aa3f7648d1f5037da1f28461a5664103d98455ca1ba5fa",
-				"dweb:/ipfs/QmbWRTGK5B2TY53artEGyeXMPQ9tybzMV1Rn8QBKTK46xM"
-			]
-		},
-		"contracts/lifecycle/Pausable.sol": {
-			"keccak256": "0xf8411b969989cc239da0483ba75ad90e1c7a1ad0d30f8deb0eb0c918bd1f9274",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://7c337dbcb96c617c557130418b7dd090ef3cc8c90b7e77be92ab37d47f90c09d",
-				"dweb:/ipfs/QmbYx1NaNF34kKAwsK8m2KUNmoY4PiCn2dm6mQFQjMZEsY"
-			]
-		},
-		"contracts/ownership/Ownable.sol": {
-			"keccak256": "0xb9a8f7ca27dc5b23cbe553c8c8427895885d2a63ab9678800ddc3cdc27829834",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://818759109012720f5cb35c8dfe4719f9072add3e1f8dbc968d5a165885b8367a",
-				"dweb:/ipfs/QmQo5tNa8LRoiLtw3PSgA6Eb2JinWcNiVzp9g9w2YMQpbP"
+				"bzz-raw://847f96e6fc77b11ebb8075056bffa606c14d3fcebdb1927e8bf64ca5e17326fa",
+				"dweb:/ipfs/Qmb7s4BLnmGLqHRJFSzNWeQBZagMyLH7UoCsDnBGUS2g6S"
 			]
 		}
 	},

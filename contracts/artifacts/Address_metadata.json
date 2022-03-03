@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/invo_v1.sol": "Address"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/invo_v1.sol": {
+			"keccak256": "0x74a36b2a52ca40c51f3c58bbd8a64b4e19945113466d5e793566f458774e55c2",
+			"license": "Unlicensed",
+			"urls": [
+				"bzz-raw://847f96e6fc77b11ebb8075056bffa606c14d3fcebdb1927e8bf64ca5e17326fa",
+				"dweb:/ipfs/Qmb7s4BLnmGLqHRJFSzNWeQBZagMyLH7UoCsDnBGUS2g6S"
+			]
+		}
+	},
+	"version": 1
+}

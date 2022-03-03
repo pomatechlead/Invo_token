@@ -16,7 +16,7 @@ contract invo is Iinvo, Ownable, Pausable {
     uint8 internal _decimals;
     uint256 internal _totalSupply;
     uint256 public basePercent = 400;
-    uint256 public _burnStopAmount;
+    uint256 public _burnStopAmount; //21 millions
     uint256 public _lastTokenSupply;
 
     mapping (address => uint256) internal _balances;
@@ -75,6 +75,7 @@ contract invo is Iinvo, Ownable, Pausable {
         require(_value <= _balances[msg.sender], 'Invo: insufficient balance');
         
         uint256 tokensToBurn = findFourPercent(_value);
+        uint256 halfOfTokensToBurn = SafeMath.div(tokensToBurn, 2);
         uint256 tokensToTransfer = _value.sub(tokensToBurn);
 
         _balances[msg.sender] = SafeMath.sub(_balances[msg.sender], _value);
@@ -83,7 +84,8 @@ contract invo is Iinvo, Ownable, Pausable {
         _totalSupply = _totalSupply.sub(tokensToBurn);
 
         emit Transfer(msg.sender, _to, tokensToTransfer);
-        emit Transfer(msg.sender, address(0), tokensToBurn);
+        emit Transfer(msg.sender, address(0), halfOfTokensToBurn);
+        //emit Transfer(msg.sender, burnWalletAddress, halfOfTokensToBurn);
         
         return true;
     }
@@ -200,11 +202,12 @@ contract invo is Iinvo, Ownable, Pausable {
     {
         require(_from != address(0), 'Invo: from address is not valid');
         require(_balances[_from] >= _amount, 'Invo: insufficient balance');
-        
+        require(_totalSupply <= _burnStopAmount, 'Invo: ');
+
         _balances[_from] = _balances[_from].sub(_amount);
         _totalSupply = _totalSupply.sub(_amount);
 
-        emit Burn(msg.sender, _from, _amount);
+        emit Burn(_from, _amount);
     }
 
 }
