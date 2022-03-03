@@ -12,4 +12,4 @@ Invo Token:
 70 Trillion Invo Token available for circulation (buy and sell)
 
 Smart Contract:
-add a 4% sales tax on all Invo Token sold 2% for development cost for the platform. The other 2% will be burned until the token has a total supply of 21 million. After the supply is at 21 million the %2 that is being burned will now be  distributed to all token holders depending on there % of holdings
+add a 2% sales tax on all Invo Token bought and sold 1% for development cost for the platform. The other 1% will be burned until the token has a total supply of 21 million. After the supply is at 21 million the %1 that is being burned will now be  distributed to all token holders depending on there % of holdings
