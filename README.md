@@ -1,15 +1,16 @@
-Create the Invo Token. When creating the Invo Token it has to be kept in mind that Invo will want to create its own Blockchain in the future.
-
 Invo Token:
-300 Trillion Invo Tokens Minted
+1 Billion Invo tokens (IV) Minted
 
-100 Trillion Invo Tokens sent to a burn wallet
+250 Million Invo tokens (IV) sent to a burn wallet
 
-100 Trillion Invo Tokens sent to the Invo Wallet. This is used for reverze tokens for our trade platform. Also used for Liquidity 
+250 Million Invo tokens (IV) sent to the Invo Wallet
 
-30 Trillion Invo Tokens reserved for employees and founders
+This is used for swap/ reserve for our ecommerce platform. 
 
-70 Trillion Invo Token available for circulation (buy and sell)
+150 Million Invo tokens (IV)s reserved for employees and founders
+
+350 Million Invo tokens (IV) available for circulation
 
 Smart Contract:
-add a 2% sales tax on all Invo Token bought and sold 1% for development cost for the platform. The other 1% will be burned until the token has a total supply of 21 million. After the supply is at 21 million the %1 that is being burned will now be  distributed to all token holders depending on there % of holdings
+Add a 1.5% sales tax on all Invo token (IV) sold 50% for development cost for the platform. 25% will be  held for liquidity, and the final 25% will be burned until the Invo token (IV) has a total supply of 21 million or less. At this point Invo token (IV) burn supply will be distributed to all holders in accordance with their balance amount. 
+
